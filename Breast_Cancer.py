@@ -158,14 +158,16 @@ def main():
     # Create randome forest classifier instance
     trained_model = random_forest_classifier(train_x, train_y)
     print("Trained model ::", trained_model)
-    predictions = trained_model(test_x)
+    predictions = trained_model.predict(test_x)
 
     for i in range(0, 205):
         print("Actual outcome :: {} and predicted outcome :: {}".format(list(test_y)[i],predictions[i]))
 
-    print("train Accuracy ::", accuracy_score(train_y, trained_model.predict(train_x)))
-    print("Test Accuracy ::",accuracy_score(test_y, predictions))
+    print("")
+    print("train Accuracy ::", accuracy_score(train_y, trained_model.predict(train_x))*100,"%")
+    print("Test Accuracy ::",accuracy_score(test_y, predictions)*100,"%\n")
     print("Confusion matrix ::",confusion_matrix(test_y, predictions))
+    print("-------------------Mahesh Pawar-------------------")
 
 ##############################################################################################################
 # Application starter
